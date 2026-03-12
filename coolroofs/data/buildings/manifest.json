@@ -1,0 +1,90 @@
+{
+  "total_features": 1002815,
+  "chunk_size": 50000,
+  "parts": [
+    {
+      "file": "part-001.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-002.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-003.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-004.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-005.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-006.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-007.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-008.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-009.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-010.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-011.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-012.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-013.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-014.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-015.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-016.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-017.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-018.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-019.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-020.geojson",
+      "features": 50000
+    },
+    {
+      "file": "part-021.geojson",
+      "features": 2815
+    }
+  ]
+}

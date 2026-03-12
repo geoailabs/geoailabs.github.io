@@ -1,0 +1,200 @@
+{
+  "cities": {
+    "amd": {
+      "label": "Ahmedabad",
+      "crossingsPerKm": 2.803,
+      "crossings": {
+        "path": "data/crossings/amd.geojson",
+        "featureCount": 2293,
+        "bounds": [
+          72.033472,
+          22.117963,
+          72.73504,
+          23.187571
+        ],
+        "center": [
+          72.384256,
+          22.652767
+        ]
+      }
+    },
+    "blr": {
+      "label": "Bangalore",
+      "crossingsPerKm": 2.885,
+      "crossings": {
+        "path": "data/crossings/blr.geojson",
+        "featureCount": 1393,
+        "bounds": [
+          77.475727,
+          12.855117,
+          77.776043,
+          13.131281
+        ],
+        "center": [
+          77.625885,
+          12.993199
+        ]
+      },
+      "trees": {
+        "path": "data/trees/blr.geojson",
+        "featureCount": 20895,
+        "bounds": [
+          77.475181,
+          12.841435,
+          77.776519,
+          13.130989
+        ],
+        "center": [
+          77.62585,
+          12.986212
+        ],
+        "format": "geojson"
+      }
+    },
+    "chennai": {
+      "label": "Chennai",
+      "crossingsPerKm": 2.276,
+      "crossings": {
+        "path": "data/crossings/chennai.geojson",
+        "featureCount": 501,
+        "bounds": [
+          80.135815,
+          12.963413,
+          80.296802,
+          13.144943
+        ],
+        "center": [
+          80.216308,
+          13.054178
+        ]
+      }
+    },
+    "gurgaon": {
+      "label": "Gurgaon",
+      "crossingsPerKm": 1.874,
+      "crossings": {
+        "path": "data/crossings/gurgaon.geojson",
+        "featureCount": 418,
+        "bounds": [
+          76.891998,
+          28.373826,
+          77.122217,
+          28.535364
+        ],
+        "center": [
+          77.007107,
+          28.454595
+        ]
+      }
+    },
+    "hyd": {
+      "label": "Hyderabad",
+      "crossingsPerKm": 3.319,
+      "crossings": {
+        "path": "data/crossings/hyd.geojson",
+        "featureCount": 1194,
+        "bounds": [
+          78.401451,
+          17.324516,
+          78.540926,
+          17.483494
+        ],
+        "center": [
+          78.471188,
+          17.404005
+        ]
+      }
+    },
+    "indore": {
+      "label": "Indore",
+      "crossingsPerKm": 1.132,
+      "crossings": {
+        "path": "data/crossings/indore.geojson",
+        "featureCount": 1555,
+        "bounds": [
+          75.482945,
+          22.362532,
+          76.142723,
+          23.063665
+        ],
+        "center": [
+          75.812834,
+          22.713098
+        ]
+      }
+    },
+    "jaipur": {
+      "label": "Jaipur",
+      "crossingsPerKm": 0.655,
+      "crossings": {
+        "path": "data/crossings/jaipur.geojson",
+        "featureCount": 691,
+        "bounds": [
+          75.362425,
+          26.755494,
+          76.2469,
+          27.733073
+        ],
+        "center": [
+          75.804662,
+          27.244284
+        ]
+      }
+    },
+    "mohali": {
+      "label": "Mohali",
+      "crossingsPerKm": 2.626,
+      "crossings": {
+        "path": "data/crossings/mohali.geojson",
+        "featureCount": 218,
+        "bounds": [
+          76.674704,
+          30.616676,
+          76.78609,
+          30.740195
+        ],
+        "center": [
+          76.730397,
+          30.678436
+        ]
+      },
+      "trees": {
+        "path": "data/trees/mohali.geojson",
+        "featureCount": 520,
+        "bounds": [
+          76.674406,
+          30.616785,
+          76.78595,
+          30.7404
+        ],
+        "center": [
+          76.730178,
+          30.678593
+        ],
+        "format": "geojson"
+      }
+    },
+    "pune": {
+      "label": "Pune",
+      "crossingsPerKm": 5.289,
+      "crossings": {
+        "path": "data/crossings/pune.geojson",
+        "featureCount": 783,
+        "bounds": [
+          73.766432,
+          18.447142,
+          74.000103,
+          18.577895
+        ],
+        "center": [
+          73.883268,
+          18.512518
+        ]
+      }
+    }
+  },
+  "treeCities": [
+    "mohali",
+    "blr"
+  ]
+}

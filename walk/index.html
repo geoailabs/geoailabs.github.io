@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Walkability Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Walkability Index</p>
+        <h1>Enhancing Urban Walkability Across Indian Cities</h1>
+        <p class="hero-copy">
+          Walking shapes everyday life in a city. This dashboard highlights crossings, tree cover, and other street
+          conditions that can make neighbourhoods safer, healthier, and more comfortable for people on foot.
+        </p>
+      </header>
+
+      <main class="layout">
+        <section class="panel controls-panel">
+          <div class="panel-heading">
+            <p class="kicker">Explorer</p>
+            <h2>Compare cities and layers</h2>
+          </div>
+
+          <label class="field">
+            <span>City</span>
+            <select id="city-select"></select>
+          </label>
+
+          <div class="toggle-group">
+            <label class="toggle">
+              <input id="crossings-toggle" type="checkbox" checked />
+              <span>Crossings</span>
+            </label>
+            <label class="toggle">
+              <input id="trees-toggle" type="checkbox" checked />
+              <span>Tree cover</span>
+            </label>
+          </div>
+
+          <div class="metrics">
+            <article class="metric-card">
+              <p class="metric-label">Crossings per km</p>
+              <p id="crossings-metric" class="metric-value">-</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Crossing points</p>
+              <p id="crossing-count" class="metric-value">-</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-label">Tree polygons</p>
+              <p id="tree-count" class="metric-value">-</p>
+            </article>
+          </div>
+
+          <p id="layer-note" class="layer-note"></p>
+        </section>
+
+        <section class="panel map-panel">
+          <div class="panel-heading map-heading">
+            <div>
+              <p class="kicker">Map</p>
+              <h2 id="map-title">City overview</h2>
+            </div>
+            <div class="map-toolbar">
+              <label class="basemap-switcher" for="basemap-select">
+                <span>Basemap</span>
+                <select id="basemap-select">
+                  <option value="google">Google Satellite</option>
+                  <option value="plain">Plain</option>
+                </select>
+              </label>
+              <p class="map-caption">Explore walkability signals across each city</p>
+            </div>
+          </div>
+          <div id="map"></div>
+        </section>
+
+        <section class="panel narrative-panel">
+          <div class="panel-heading">
+            <p class="kicker">Why It Matters</p>
+            <h2>What makes a place feel walkable?</h2>
+          </div>
+          <div id="milestones" class="milestones"></div>
+          <img class="feature-image" src="./assets/example-images.png" alt="Example satellite and street imagery" />
+          <p>
+            People are more likely to walk when streets feel safe, shaded, connected, and welcoming. Crossings help
+            people move comfortably through busy roads, while tree cover can make walking cooler and more pleasant.
+          </p>
+          <p>
+            By comparing these signals across cities, the dashboard helps surface where pedestrian-friendly
+            infrastructure is already strong and where there is room to improve the everyday walking experience.
+          </p>
+        </section>
+
+        <section class="panel people-panel">
+          <div class="panel-heading">
+            <p class="kicker">Team</p>
+            <h2>Who is doing this?</h2>
+          </div>
+          <div class="people-grid">
+            <article class="person-card">
+              <img src="./assets/anupam.jpeg" alt="Dr. Anupam Sobti" />
+              <h3>Dr. Anupam Sobti</h3>
+              <p>Pedestrian professor</p>
+            </article>
+            <article class="person-card">
+              <img src="./assets/varchita.jpeg" alt="Varchita Lalwani" />
+              <h3>Varchita Lalwani</h3>
+              <p>Pedestrian Research Fellow</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel partners-panel">
+          <div class="panel-heading">
+            <p class="kicker">Partners</p>
+            <h2>Partners on the walk</h2>
+          </div>
+          <div class="partners-grid">
+            <img src="./assets/nagarro-logo.png" alt="Nagarro logo" />
+            <img src="./assets/raahgiri-logo.jpeg" alt="Raahgiri logo" />
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/deck.gl@^9.1.0/dist.min.js"></script>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

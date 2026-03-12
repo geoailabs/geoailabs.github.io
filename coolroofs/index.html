@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cool Roofs in Hyderabad</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <aside class="sidebar">
+        <p class="eyebrow">GitHub Pages Export</p>
+        <h1>Cool Roofs in Hyderabad</h1>
+        <p class="lede">
+          A standalone Deck.gl map of Hyderabad cool-roof data, ready to host as
+          a static site.
+        </p>
+
+        <div class="panel">
+          <h2>Layers</h2>
+          <label class="toggle">
+            <input id="toggle-pincodes" type="checkbox" checked />
+            <span>Pin code cool-roof totals</span>
+          </label>
+          <label class="toggle">
+            <input id="toggle-infosys" type="checkbox" checked />
+            <span>Infosys building footprints</span>
+          </label>
+          <label class="toggle">
+            <input id="toggle-buildings" type="checkbox" />
+            <span>All Hyderabad buildings</span>
+          </label>
+          <p class="hint">
+            The full building layer contains over one million polygons and loads
+            progressively in chunks.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h2>Legend</h2>
+          <div class="legend-item">
+            <span class="swatch swatch-pincode"></span>
+            <span>Pin codes shaded by cool-roof count</span>
+          </div>
+          <div class="legend-item">
+            <span class="swatch swatch-cool"></span>
+            <span>Cool roofs</span>
+          </div>
+          <div class="legend-item">
+            <span class="swatch swatch-noncool"></span>
+            <span>Non-cool roofs</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Status</h2>
+          <p id="status-text">Loading pin codes and Infosys footprints...</p>
+          <p id="building-progress" class="progress muted">
+            Full building layer is idle.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h2>About</h2>
+          <p>
+            Cool roofs use reflective coatings to reduce heat absorption,
+            helping buildings stay cooler and lowering energy demand.
+          </p>
+          <p>
+            This export preserves the project’s CRS fix and reprojects the
+            Hyderabad dataset correctly before serving it on the web.
+          </p>
+        </div>
+      </aside>
+
+      <main class="map-stage">
+        <div id="deck-map"></div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/deck.gl@9.0.38/dist.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

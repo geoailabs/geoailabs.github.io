@@ -1,0 +1,153 @@
+:root {
+  --bg: #f3efe3;
+  --panel: rgba(255, 251, 243, 0.92);
+  --panel-border: rgba(79, 63, 45, 0.14);
+  --text: #2f2418;
+  --muted: #6f604e;
+  --accent: #d95d39;
+  --cool: #0b8f61;
+  --noncool: #d1495b;
+  --pincode: linear-gradient(90deg, #f6e8c3 0%, #dfb36c 50%, #b85c38 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(circle at top left, rgba(217, 93, 57, 0.16), transparent 36%),
+    linear-gradient(180deg, #f5f1e8 0%, #ebe2d2 100%);
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+}
+
+.page-shell {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  padding: 28px 22px;
+  backdrop-filter: blur(8px);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+h2 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.lede,
+.hint,
+.progress,
+.panel p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.panel {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 18px;
+  box-shadow: 0 14px 32px rgba(90, 72, 51, 0.08);
+}
+
+.toggle {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.toggle input {
+  margin-top: 3px;
+  accent-color: var(--accent);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+.swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 1px solid rgba(47, 36, 24, 0.12);
+}
+
+.swatch-pincode {
+  background: var(--pincode);
+}
+
+.swatch-cool {
+  background: rgba(11, 143, 97, 0.85);
+}
+
+.swatch-noncool {
+  background: rgba(209, 73, 91, 0.85);
+}
+
+.map-stage {
+  position: relative;
+  min-height: 100vh;
+}
+
+#deck-map {
+  position: absolute;
+  inset: 0;
+}
+
+.muted {
+  opacity: 0.82;
+}
+
+@media (max-width: 960px) {
+  .page-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(60vh, 1fr);
+  }
+
+  .sidebar {
+    padding-bottom: 8px;
+  }
+
+  .map-stage {
+    min-height: 68vh;
+  }
+}
