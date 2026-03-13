@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Street-View Tree Census</title>
+    <link rel="stylesheet" href="./vendor/maplibre-gl.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <div id="map"></div>
+      <aside class="panel">
+        <div class="panel-header">
+          <div class="eyebrow">Urban Forestry Mapping</div>
+          <h1>Street-View Tree Census</h1>
+          <p>
+            This project explores how a city-scale tree census can be built from street-view
+            imagery instead of sending survey teams to count every trunk manually.
+          </p>
+        </div>
+
+        <section class="panel-section narrative">
+          <h2>What This Shows</h2>
+          <p>
+            We used a custom-trained model to detect tree trunks in street-view images and
+            then map those detections across the surveyed region.
+          </p>
+          <p>
+            The result is a fast, repeatable way to estimate urban tree inventory at a city
+            scale. In the limited areas where we ran ground-truth validation, the approach
+            performed with strong accuracy.
+          </p>
+          <div class="highlight-box">
+            <strong>Why it matters</strong>
+            <span>
+              A workflow like this can help cities update tree counts, prioritize field work,
+              and monitor urban canopy infrastructure without starting from scratch each time.
+            </span>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <h2>Layers</h2>
+          <label class="toggle-row">
+            <span>
+              <input id="toggle-trees" type="checkbox" checked />
+              Trees
+            </span>
+            <strong id="tree-count">0</strong>
+          </label>
+          <label class="toggle-row">
+            <span>
+              <input id="toggle-streetviews" type="checkbox" checked />
+              Street Views
+            </span>
+            <strong id="streetview-count">0</strong>
+          </label>
+        </section>
+
+        <section class="panel-section">
+          <h2>Base Map</h2>
+          <div class="button-stack">
+            <button class="basemap-button is-active" data-basemap="satellite">Satellite</button>
+            <button class="basemap-button" data-basemap="streets">Streets</button>
+            <button class="basemap-button" data-basemap="minimal">Minimal</button>
+          </div>
+        </section>
+
+        <section class="panel-section selection">
+          <h2>Selection</h2>
+          <div id="selection-content" class="empty-state">
+            Click a mapped tree to inspect its location and detection metadata.
+          </div>
+        </section>
+
+        <section class="panel-section footer-note">
+          <div class="contributors">
+            <strong>Contributors</strong>
+            <span>Malhar Bhise</span>
+            <span>Utkarsh Agarwal</span>
+            <span>Bhavi</span>
+          </div>
+          <div class="mentor-note">Mentored by Dr Anupam Sobti.</div>
+          <p>
+            This public demo focuses on the mapped outputs. Panorama rendering and model
+            internals are intentionally omitted here to keep the site lightweight and easy to
+            publish.
+          </p>
+        </section>
+      </aside>
+    </div>
+
+    <script src="./vendor/maplibre-gl.js"></script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
