@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Interactive architecture map for an integrated Water Intelligence Platform.">
+  <title>Water Intelligence Platform — Interactive Architecture</title>
+  <style>
+    :root{--ink:#082f3b;--muted:#56727a;--bg:#eef7f6;--panel:rgba(255,255,255,.82);--line:#88aeb0;--source:#087f8c;--cap:#165d80;--stake:#c36b3c;--shadow:0 18px 50px rgba(11,64,72,.1);--radius:24px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(circle at 10% 0%,#d4f0eb 0,transparent 35%),radial-gradient(circle at 100% 15%,#dcecf5 0,transparent 30%),var(--bg);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    button{font:inherit}.shell{width:min(1480px,calc(100% - 36px));margin:auto;padding:38px 0 54px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:12px;font-size:.8rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.drop{width:34px;height:42px;border-radius:55% 55% 58% 58% / 70% 70% 40% 40%;background:linear-gradient(145deg,#31b9bb,#087f8c);transform:rotate(45deg);box-shadow:0 8px 18px rgba(8,127,140,.28)}
+    .actions{display:flex;gap:9px;align-items:center}.utility{border:1px solid rgba(8,47,59,.14);background:rgba(255,255,255,.72);color:var(--ink);border-radius:999px;padding:9px 14px;cursor:pointer;font-size:.82rem;font-weight:700}.utility:hover,.utility:focus-visible{background:#fff;outline:3px solid rgba(8,127,140,.18);outline-offset:2px}
+    header{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.7fr);gap:42px;align-items:end;margin:32px 0 36px}h1{font-size:clamp(2.25rem,5vw,5.3rem);line-height:.92;letter-spacing:-.055em;margin:0;max-width:900px}.lead{font-size:clamp(1rem,1.6vw,1.18rem);line-height:1.65;color:var(--muted);margin:0 0 4px}.eyebrow{color:var(--source);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:15px}
+    .map{position:relative;isolation:isolate;display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:clamp(24px,4vw,70px);padding:26px;border:1px solid rgba(8,47,59,.1);border-radius:32px;background:rgba(255,255,255,.42);box-shadow:var(--shadow);overflow:hidden}.map:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(8,127,140,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(8,127,140,.035) 1px,transparent 1px);background-size:28px 28px;z-index:-2}.links{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}.col{min-width:0}.colhead{display:flex;align-items:center;justify-content:space-between;margin:2px 2px 15px}.kicker{font-size:.72rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}.count{font-size:.72rem;font-weight:800;color:var(--muted);background:rgba(255,255,255,.8);padding:5px 9px;border-radius:99px}.nodes{display:flex;flex-direction:column;gap:11px}
+    .node{--accent:var(--source);width:100%;position:relative;text-align:left;border:1px solid rgba(8,47,59,.11);border-left:4px solid var(--accent);background:var(--panel);color:var(--ink);border-radius:16px;padding:14px 15px;cursor:pointer;box-shadow:0 5px 16px rgba(8,47,59,.045);transition:opacity .25s,transform .25s,box-shadow .25s,background .25s,border-color .25s}.node.cap{--accent:var(--cap)}.node.stake{--accent:var(--stake)}.node:hover{transform:translateY(-2px);box-shadow:0 11px 26px rgba(8,47,59,.11)}.node:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 35%,transparent);outline-offset:3px}.node strong{display:block;font-size:.94rem;line-height:1.3}.node small{display:block;color:var(--muted);font-size:.73rem;line-height:1.35;margin-top:4px}.node.active{color:white;background:var(--accent);border-color:var(--accent);transform:translateY(-2px) scale(1.015);box-shadow:0 14px 28px color-mix(in srgb,var(--accent) 26%,transparent)}.node.active small{color:rgba(255,255,255,.82)}.node.related{background:color-mix(in srgb,var(--accent) 11%,white);border-color:color-mix(in srgb,var(--accent) 45%,transparent);box-shadow:0 8px 22px color-mix(in srgb,var(--accent) 13%,transparent)}.node.dim{opacity:.24;filter:saturate(.4)}
+    .legend{display:flex;gap:17px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:.77rem;margin-top:15px;padding:0 4px}.legend span{display:flex;align-items:center;gap:7px}.dot{width:8px;height:8px;border-radius:50%}.hint{margin-left:auto}.details{margin-top:18px;display:grid;grid-template-columns:minmax(260px,.65fr) minmax(0,1.35fr);gap:18px}.summary,.journey{border:1px solid rgba(8,47,59,.1);border-radius:var(--radius);background:rgba(255,255,255,.72);padding:23px;box-shadow:0 10px 32px rgba(11,64,72,.06)}.summary h2,.journey h2{margin:0 0 8px;font-size:1.08rem}.summary p{margin:0;color:var(--muted);line-height:1.55;font-size:.9rem}.journey-list{display:flex;align-items:center;gap:10px;min-height:54px;overflow-x:auto;padding:3px 1px}.pill{white-space:nowrap;padding:8px 11px;border-radius:999px;background:#edf6f5;border:1px solid rgba(8,47,59,.1);font-size:.76rem;font-weight:750}.arrow{color:#719095;font-weight:900}.empty{color:var(--muted);font-size:.86rem}
+    footer{display:flex;justify-content:space-between;gap:24px;margin-top:19px;color:var(--muted);font-size:.76rem}.noscript{margin:20px auto;padding:15px;max-width:700px;background:#fff4dc;border:1px solid #e4c57e;border-radius:12px}
+    @media(max-width:900px){header{grid-template-columns:1fr;gap:18px}.map{grid-template-columns:1fr;padding:20px}.links{display:none}.col{padding-bottom:8px}.col:not(:last-child){border-bottom:1px dashed rgba(8,47,59,.15)}.details{grid-template-columns:1fr}.hint{width:100%;margin-left:0}.node.dim{display:none}h1{line-height:1}}
+    @media(max-width:560px){.shell{width:min(100% - 22px,1480px);padding-top:20px}.topbar{align-items:flex-start}.brand{font-size:.68rem}.drop{width:26px;height:32px}.actions{flex-direction:column;align-items:stretch}.utility{padding:7px 11px}.map{border-radius:22px;padding:15px}header{margin-top:24px}.details{margin-top:12px}.summary,.journey{padding:18px}footer{flex-direction:column;gap:5px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+    @media print{body{background:#fff}.shell{width:100%;padding:10px}.topbar .actions,.legend,.details,footer{display:none}.map{box-shadow:none;background:#fff}.links{opacity:.55}.node{break-inside:avoid;box-shadow:none}}
+  </style>
+</head>
+<body>
+  <noscript><div class="noscript">This map needs JavaScript for interactive dependency highlighting, but all architecture items remain visible below.</div></noscript>
+  <main class="shell">
+    <div class="topbar"><div class="brand"><span class="drop" aria-hidden="true"></span><span>Integrated Water Intelligence</span></div><div class="actions"><button class="utility" id="reset" type="button">Show all</button><button class="utility" id="print" type="button">Print / Save PDF</button></div></div>
+    <header><div><div class="eyebrow">Data → Intelligence → Action</div><h1>Water Intelligence Platform</h1></div><p class="lead">An integrated decision system connecting field evidence and earth observation to planning, monitoring, treatment, and public outcomes.</p></header>
+    <section class="map" id="map" aria-label="Interactive architecture map">
+      <canvas class="links" id="links" aria-hidden="true"></canvas>
+      <div class="col"><div class="colhead"><span class="kicker" style="color:var(--source)">01 · Inputs</span><span class="count">4 sources</span></div><div class="nodes" id="sources"></div></div>
+      <div class="col"><div class="colhead"><span class="kicker" style="color:var(--cap)">02 · Platform capabilities</span><span class="count">4 services</span></div><div class="nodes" id="capabilities"></div></div>
+      <div class="col"><div class="colhead"><span class="kicker" style="color:var(--stake)">03 · Stakeholders</span><span class="count">7 groups</span></div><div class="nodes" id="stakeholders"></div></div>
+    </section>
+    <div class="legend"><span><i class="dot" style="background:var(--source)"></i>Evidence inputs</span><span><i class="dot" style="background:var(--cap)"></i>Intelligence services</span><span><i class="dot" style="background:var(--stake)"></i>Decision makers & beneficiaries</span><span class="hint">Select any card to trace its complete pathway · Press Esc to reset</span></div>
+    <section class="details" aria-live="polite"><article class="summary"><h2 id="detail-title">Explore the architecture</h2><p id="detail-text">Select an input, capability, or stakeholder to highlight every connected dependency and outcome.</p></article><article class="journey"><h2>Selected pathway</h2><div class="journey-list" id="journey"><span class="empty">No item selected — all relationships are visible.</span></div></article></section>
+    <footer><span>Integrated Water Intelligence Platform · Concept architecture</span><span>Designed for proposals, workshops, and stakeholder engagement</span></footer>
+  </main>
+  <script>
+    const data={
+      sources:[
+        {id:'literature',title:'Literature Survey',sub:'Methods, thresholds & evidence · Pankaj',desc:'Synthesizes existing research, regulatory standards, analytical methods, pollutant pathways, and treatment strategies.'},
+        {id:'remote',title:'Remote Sensing',sub:'Satellite imagery & geospatial layers · Anupam',desc:'Reveals land-use change, water extent, thermal patterns, catchment conditions, and remotely sensed water-quality proxies.'},
+        {id:'sensors',title:'Sensor Deployment',sub:'Continuous field observations · Sandeep',desc:'Provides continuous, high-frequency measurements from streams, treatment plants, distribution systems, and groundwater.'},
+        {id:'sampling',title:'Physical Sampling & Analysis',sub:'Conventional · Chromatographic · Optical',desc:'Delivers ground truth, pollutant chemistry, laboratory validation, and calibration data for models and sensors.'}
+      ],
+      capabilities:[
+        {id:'demand',title:'Demand & Water Availability Projection',sub:'Growth · Land use · Data centres · Water stress',desc:'Forecasts future demand and availability to support resilient infrastructure, allocation, and investment decisions.'},
+        {id:'digital',title:'Water Quality Digital Twin',sub:'Streams · Groundwater · Hotspots · Trends',desc:'Combines observations and models into living maps of surface water, groundwater, contamination hotspots, and change over time.'},
+        {id:'optimisation',title:'Sensing Optimisation',sub:'Where to sense · What to sense · When to sense',desc:'Identifies the most valuable locations, sensor types, and sampling frequencies for maximum coverage and cost efficiency.'},
+        {id:'treatment',title:'Treatment & Intervention Planning',sub:'Decentralized STPs · Industry · Solid waste',desc:'Prioritizes treatment infrastructure, pollution control, remediation, and targeted interventions based on measured risk.'}
+      ],
+      stakeholders:[
+        {id:'mohua',title:'MOHUA / AMRUT 2.0',sub:'National missions & urban investment',desc:'Uses integrated evidence for policy, mission monitoring, investment prioritization, and urban water-security planning.'},
+        {id:'municipal',title:'Municipal Corporation',sub:'Water supply · Sewerage · WWTPs',desc:'Uses operational intelligence for drinking-water safety, sewer networks, treatment-plant health, and service planning.'},
+        {id:'pollution',title:'PPCB / CPCB',sub:'Industrial · Agricultural · Sewage pollution',desc:'Uses compliance evidence, hotspot detection, and optimized monitoring for pollution regulation and enforcement.'},
+        {id:'water',title:'WRD & CGWB',sub:'Surface water · Aquifers · Allocation',desc:'Uses demand, availability, and quality intelligence for resource allocation, aquifer management, and long-term security.'},
+        {id:'communities',title:'Local Communities',sub:'Borewells · City supply · Resident groups',desc:'Benefit from accessible water-quality information, contamination alerts, transparent decisions, and safer local supplies.'},
+        {id:'health',title:'Health Facilities',sub:'Public health departments · Hospitals',desc:'Use exposure intelligence and alerts to connect water-quality risks with surveillance, prevention, and health response.'},
+        {id:'biodiversity',title:'Biodiversity & Environment Bodies',sub:'Ecosystem monitoring · State of Environment',desc:'Use water-quality trends and stress indicators to evaluate habitat health, biodiversity risk, and environmental outcomes.'}
+      ]
+    };
+    const links=[
+      ['literature','demand'],['literature','digital'],['literature','optimisation'],['literature','treatment'],
+      ['remote','demand'],['remote','digital'],['remote','optimisation'],['sensors','digital'],['sensors','optimisation'],
+      ['sampling','digital'],['sampling','optimisation'],['sampling','treatment'],
+      ['demand','mohua'],['demand','municipal'],['demand','water'],
+      ['digital','mohua'],['digital','municipal'],['digital','pollution'],['digital','water'],['digital','communities'],['digital','health'],['digital','biodiversity'],
+      ['optimisation','mohua'],['optimisation','municipal'],['optimisation','pollution'],['optimisation','water'],
+      ['treatment','mohua'],['treatment','municipal'],['treatment','pollution'],['treatment','communities']
+    ];
+    const all=[...data.sources,...data.capabilities,...data.stakeholders], byId=Object.fromEntries(all.map(x=>[x.id,x]));
+    const groups={sources:data.sources.map(x=>x.id),capabilities:data.capabilities.map(x=>x.id),stakeholders:data.stakeholders.map(x=>x.id)};
+    let selected=null, raf;
+    function renderGroup(key,cls){document.getElementById(key).innerHTML=data[key].map(n=>`<button type="button" class="node ${cls}" data-id="${n.id}" aria-pressed="false"><strong>${n.title}</strong><small>${n.sub}</small></button>`).join('')}
+    renderGroup('sources','source');renderGroup('capabilities','cap');renderGroup('stakeholders','stake');
+    const canvas=document.getElementById('links'),map=document.getElementById('map'),ctx=canvas.getContext('2d');
+    function connectedSet(id){
+      const seen=new Set([id]);let changed=true;
+      while(changed){changed=false;for(const [a,b] of links){if(seen.has(a)||seen.has(b)){if(!seen.has(a)){seen.add(a);changed=true}if(!seen.has(b)){seen.add(b);changed=true}}}}
+      return seen;
+    }
+    function directSet(id){const s=new Set([id]);links.forEach(([a,b])=>{if(a===id)s.add(b);if(b===id)s.add(a)});return s}
+    function draw(){
+      const rect=map.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);canvas.width=rect.width*dpr;canvas.height=rect.height*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,rect.width,rect.height);
+      if(innerWidth<=900)return;const direct=selected?directSet(selected):null,network=selected?connectedSet(selected):null;
+      links.forEach(([a,b])=>{const A=document.querySelector(`[data-id="${a}"]`).getBoundingClientRect(),B=document.querySelector(`[data-id="${b}"]`).getBoundingClientRect();const x1=A.right-rect.left,y1=A.top+A.height/2-rect.top,x2=B.left-rect.left,y2=B.top+B.height/2-rect.top;const hot=!selected||(direct.has(a)&&direct.has(b));const within=!selected||(network.has(a)&&network.has(b));ctx.beginPath();ctx.moveTo(x1,y1);const bend=(x2-x1)*.46;ctx.bezierCurveTo(x1+bend,y1,x2-bend,y2,x2,y2);ctx.strokeStyle=hot?'rgba(8,127,140,.82)':within?'rgba(8,127,140,.18)':'rgba(90,125,128,.06)';ctx.lineWidth=hot?2.2:1;ctx.setLineDash(hot?[]:[3,5]);ctx.stroke();ctx.setLineDash([]);if(hot){ctx.beginPath();ctx.arc(x2,y2,3,0,Math.PI*2);ctx.fillStyle='rgba(8,127,140,.9)';ctx.fill()}});
+    }
+    function pathway(id){
+      const src=[],cap=[],stake=[];const net=connectedSet(id);groups.sources.forEach(x=>net.has(x)&&src.push(x));groups.capabilities.forEach(x=>net.has(x)&&cap.push(x));groups.stakeholders.forEach(x=>net.has(x)&&stake.push(x));return {src,cap,stake};
+    }
+    function select(id){
+      selected=id;const net=connectedSet(id),direct=directSet(id);document.querySelectorAll('.node').forEach(el=>{const x=el.dataset.id;el.classList.toggle('active',x===id);el.classList.toggle('related',x!==id&&net.has(x));el.classList.toggle('dim',!net.has(x));el.setAttribute('aria-pressed',x===id)});const n=byId[id];document.getElementById('detail-title').textContent=n.title;document.getElementById('detail-text').textContent=n.desc;const p=pathway(id),parts=[];if(p.src.length)parts.push(p.src.map(x=>`<span class="pill">${byId[x].title}</span>`).join(''));if(p.cap.length)parts.push(p.cap.map(x=>`<span class="pill">${byId[x].title}</span>`).join(''));if(p.stake.length)parts.push(p.stake.map(x=>`<span class="pill">${byId[x].title}</span>`).join(''));document.getElementById('journey').innerHTML=parts.join('<span class="arrow">→</span>');draw();
+    }
+    function reset(){selected=null;document.querySelectorAll('.node').forEach(el=>{el.classList.remove('active','related','dim');el.setAttribute('aria-pressed','false')});document.getElementById('detail-title').textContent='Explore the architecture';document.getElementById('detail-text').textContent='Select an input, capability, or stakeholder to highlight every connected dependency and outcome.';document.getElementById('journey').innerHTML='<span class="empty">No item selected — all relationships are visible.</span>';draw()}
+    document.querySelectorAll('.node').forEach(el=>el.addEventListener('click',()=>selected===el.dataset.id?reset():select(el.dataset.id)));
+    document.getElementById('reset').addEventListener('click',reset);document.getElementById('print').addEventListener('click',()=>window.print());document.addEventListener('keydown',e=>{if(e.key==='Escape')reset()});
+    new ResizeObserver(()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(draw)}).observe(map);window.addEventListener('load',draw);
+  </script>
+</body>
+</html>
