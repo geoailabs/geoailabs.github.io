@@ -824,6 +824,22 @@ p {
   padding: 24px;
 }
 
+.contact-panel p a {
+  color: inherit;
+  text-decoration-color: rgba(8, 127, 140, 0.35);
+  text-underline-offset: 4px;
+}
+
+.contact-panel p a:hover {
+  color: var(--brand);
+  text-decoration-color: currentColor;
+}
+
+.contact-actions .button {
+  width: 236px;
+  max-width: 100%;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(18px);
